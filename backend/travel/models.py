@@ -17,7 +17,16 @@ class Category(models.Model):
 
 # Location Model
 class Location(models.Model):
-    division = models.CharField(_('Division'), max_length=20, unique=True)
+    class DivisionChoices(models.TextChoices):
+        BARISAL = 'BRS', _('Barisal')
+        CHITTAGONG = 'CTG', _('Chittagong')
+        DHAKA = 'DHK', _('Dhaka')
+        Khulna = 'KLN', _('Khulna')
+        MYMENSINGH = 'MMS', _('Mymensingh')
+        RAJSHAHI = 'RJS', _('Rajshahi')
+        RANGPUR = 'RGP', _('Rangpur')
+        SYLHET = 'SYL', _('Sylhet')
+    division = models.CharField(_('Division'), max_length=3, choices=DivisionChoices.choices)
     district = models.CharField(_('District'), max_length=20, unique=True)
 
     class Meta:
@@ -30,7 +39,8 @@ class Location(models.Model):
 
 # Place model
 class Place(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='places', verbose_name=_('Category'))
+    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, related_name='places', verbose_name=_('Category'))
+    location = models.ForeignKey(Location, on_delete=models.PROTECT, related_name='places', verbose_name=_('Location'))
     name = models.CharField(_('Place'), max_length=100)
     slug = models.SlugField(_('Slug'), max_length=100)
     description = models.TextField(_('Description'))
