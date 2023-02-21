@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
@@ -14,10 +15,10 @@ class Post(models.Model):
     class Status(models.TextChoices):
         DRAFT = 'DF', _('Draft')
         PUBLISHED = 'PB', _('Published')
+
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts', verbose_name=_('Author'))
     title = models.CharField(_('Title'), max_length=250)
-    slug = models.SlugField(_('Slug'), max_length=250, unique_for_date='publish')
-    publish = models.DateTimeField(_('Publish'), default=timezone.now)
+    slug = models.SlugField(_('Slug'), max_length=250, unique_for_date='created')
     created = models.DateTimeField(_('Created'), auto_now_add=True)
     updated = models.DateTimeField(_('Updated'), auto_now=True)
     status = models.CharField(_('Status'), max_length=2, choices=Status.choices, default=Status.DRAFT)
@@ -29,11 +30,14 @@ class Post(models.Model):
     class Meta:
         verbose_name = _('Post')
         verbose_name_plural = _('Posts')
-        ordering = ['-publish']
+        ordering = ['-created']
         indexes = [
-            models.Index(fields=['-publish'])
+            models.Index(fields=['-created'])
         ]
 
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        created = timezone.make_naive(self.created)
+        return reverse('blog:post_detail', args=[created.year, created.month, created.day, self.slug])
