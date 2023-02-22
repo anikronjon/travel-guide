@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     # my apps
     'travel.apps.TravelConfig',
     'blog.apps.BlogConfig',
+    'account.apps.AccountConfig',
     # third party
     'social_django',
     # dev packages (will remove when prod)

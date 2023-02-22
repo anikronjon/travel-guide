@@ -6,9 +6,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('social_django.urls', namespace='social')),
     path('', include('travel.urls', namespace='travel')),
     path('blog/', include('blog.urls', namespace='blog')),
-    path('', include('social_django.urls', namespace='social'))
+    path('', include('account.urls', namespace='account')),
 ]
 
 if settings.DEBUG:
