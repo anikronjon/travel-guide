@@ -8,6 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('travel.urls', namespace='travel')),
     path('blog/', include('blog.urls', namespace='blog')),
+    path('', include('social_django.urls', namespace='social'))
 ]
 
 if settings.DEBUG:
