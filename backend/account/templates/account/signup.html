@@ -1,0 +1,16 @@
+{% extends 'base_account.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Registration{% endblock %}
+
+{% block container %}
+    <div>
+        <h2>Register your account</h2>
+        <p>Please provide all required information to signup.</p>
+        <form method="post">
+            {% csrf_token %}
+            {% crispy form %}
+            <input type="submit" value="Submit" class="btn btn-primary">
+        </form>
+    </div>
+{% endblock %}
