@@ -1,8 +1,17 @@
 from django import forms
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Row, Column, Field
+
+
+# User Login form
+class UserSignInForm(AuthenticationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', 'Submit', css_class='btn-warning col-md-6'))
 
 
 # User registration form
@@ -30,3 +39,5 @@ class UserSignUpForm(UserCreationForm):
                Column('last_name', css_class='col-md-6 mb-0'),
             ),
         )
+
+

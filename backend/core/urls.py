@@ -3,13 +3,12 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('social_django.urls', namespace='social')),
     path('', include('travel.urls', namespace='travel')),
     path('blog/', include('blog.urls', namespace='blog')),
-    path('account/', include('account.urls', namespace='account')),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
 ]
 
 if settings.DEBUG:
