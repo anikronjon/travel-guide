@@ -1,7 +1,7 @@
 services:
   web:
     build: backend
-    command: python backend/manage.py runserver 0.0.0.0:8000
+    command: ["./wait-for-it.sh", "db:5432", "--", "python", "backend/manage.py", "runserver", "0.0.0.0:8000"]
     restart: always
     volumes:
       - .:/code
@@ -24,5 +24,3 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-    ports:
-      - "5432:5432"
