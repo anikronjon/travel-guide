@@ -1,5 +1,5 @@
 # Copy _base.txt file packages
--r _base.txt
+-r base.txt
 django-extensions
 Werkzeug
 pyOpenSSL

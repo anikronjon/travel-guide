@@ -6,3 +6,4 @@ tzdata==2022.7
 git+https://github.com/python-social-auth/social-app-django.git@a5f470a06368f5cabb0fdcd593c613952b74f79d
 django-crispy-forms
 crispy-bootstrap5
+decouple

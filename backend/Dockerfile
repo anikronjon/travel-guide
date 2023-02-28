@@ -11,10 +11,12 @@ WORKDIR /code
 
 # Install dependencies
 RUN pip install --upgrade pip
-COPY requirements/ .
+COPY requirements/ ./requirements
 RUN pip install -r requirements/prod.txt
+# RUN pip install -r prod.txt
 
 # Copy the django project
 # Here first dot(.) means current working dir.
 # and second dot(.) means container working dir.
+
 COPY . .
