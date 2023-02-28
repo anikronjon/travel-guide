@@ -4,17 +4,12 @@ from django.core.management.utils import get_random_secret_key
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = get_random_secret_key()
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['anikronjon.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -34,8 +29,6 @@ INSTALLED_APPS = [
     'social_django',
     'crispy_forms',
     'crispy_bootstrap5',
-    # dev packages (will remove when prod)
-    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +129,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CRISPY form allowed bootstrap v5
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
