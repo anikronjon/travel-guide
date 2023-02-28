@@ -8,7 +8,7 @@ ALLOWED_HOSTS = ['anikronjon.us', 'anikronjon.com']
 
 
 ADMINS = [
-    ('Anik Ronjon', 'anikronjon@gmail.com'),
+    ('Anik Ronjon', 'anikronjon@gmail.com', '127.0.0.1', 'localhost'),
 ]
 
 
