@@ -2,8 +2,9 @@ services:
   web:
     build: backend
     command: sh -c "./wait-for-it.sh db:5432 -- &&
-                    python backend/manage.py makemigrations &&
-                    python backend/manage.py migrate &&
+                    cd backend &&
+                    python manage.py makemigrations &&
+                    python manage.py migrate &&
                     uwsgi --ini config/uwsgi/uwsgi.ini"
     restart: always
     volumes:
