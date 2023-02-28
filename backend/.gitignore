@@ -112,3 +112,7 @@ GitHub.sublime-settings
 
 # Visual Studio Code #
 .vscode/
+
+
+# uwsgi
+uwsgi_app.sock

@@ -4,7 +4,7 @@ services:
     command: sh -c "./wait-for-it.sh db:5432 -- &&
                     python backend/manage.py makemigrations &&
                     python backend/manage.py migrate &&
-                    python backend/manage.py runserver 0.0.0.0:8000"
+                    uwsgi --ini config/uwsgi/uwsgi.ini"
     restart: always
     volumes:
       - .:/code
@@ -27,3 +27,12 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+
+  nginx:
+    image: nginx:1.23.1
+    restart: always
+    volumes:
+      - ./config/nginx:/etc/nginx/templates
+      - .:/code
+    ports:
+      - "80:80"
