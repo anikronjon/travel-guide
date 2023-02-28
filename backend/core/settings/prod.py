@@ -4,22 +4,22 @@ from .base import *
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['anikronjon.us', 'anikronjon.com']
+ALLOWED_HOSTS = ['anikronjon.us', 'anikronjon.com', '127.0.0.1', 'localhost']
 
 
 ADMINS = [
-    ('Anik Ronjon', 'anikronjon@gmail.com', '127.0.0.1', 'localhost'),
+    ('Anik Ronjon', 'anikronjon@gmail.com'),
 ]
 
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ.get('POSTGRES_DB'),
         'USER': os.environ.get('POSTGRES_USER'),
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-        'HOST': '127.0.0.1',
-        'PORT': 5432,
+        'HOST': 'db',
+        'PORT': '5432',
     }
 }
 
