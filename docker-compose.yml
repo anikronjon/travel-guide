@@ -1,8 +1,7 @@
 services:
   web:
     build: backend
-    command: sh -c "./wait-for-it.sh db:5432 -- &&
-                    cd backend &&
+    command: sh -c "cd backend &&
                     python manage.py makemigrations &&
                     python manage.py migrate &&
                     uwsgi --ini config/uwsgi/uwsgi.ini"
