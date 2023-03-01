@@ -7,7 +7,7 @@ upstream uwsgi_app {
 
 server {
     listen 80;
-    server_name localhost anikronjon.com;
+    server_name localhost anikronjon.com 18.234.111.221;
     error_log stderr warn;
     access_log /dev/stdout main;
     
