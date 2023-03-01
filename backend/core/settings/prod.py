@@ -4,7 +4,7 @@ from .base import *
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['anikronjon.us', 'anikronjon.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['anikronjon.us', 'anikronjon.com', '127.0.0.1', 'localhost', '54.159.58.67']
 
 
 ADMINS = [
