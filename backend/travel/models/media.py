@@ -26,7 +26,7 @@ def validate_video_size(video):
 class MediaImage(models.Model):
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
-    content_object = GenericForeignKey(content_type, object_id)
+    content_object = GenericForeignKey('content_type', 'object_id')
     image = models.ImageField(_('Image'), upload_to=media_upload_path, validators=[validate_image_size])
 
 
@@ -34,5 +34,5 @@ class MediaImage(models.Model):
 class MediaVideo(models.Model):
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
-    content_object = GenericForeignKey(content_type, object_id)
+    content_object = GenericForeignKey('content_type', 'object_id')
     video = models.ImageField(_('Video'), upload_to=media_upload_path, validators=[validate_video_size])

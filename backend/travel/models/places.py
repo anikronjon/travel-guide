@@ -1,5 +1,7 @@
 from django.db import models
+from django.contrib.contenttypes.fields import GenericRelation
 from django.utils.translation import gettext_lazy as _
+from . import MediaVideo, MediaImage
 
 
 # Category model
@@ -46,6 +48,9 @@ class TouristPlace(models.Model):
     description = models.TextField(_('Description'))
     created = models.DateTimeField(_('Created'), auto_now_add=True)
     updated = models.DateTimeField(_('Updated'), auto_now=True)
+    label_image = models.ImageField(_('Label image'), upload_to='image/label/')
+    image = GenericRelation(MediaImage)
+    video = GenericRelation(MediaVideo)
 
     class Meta:
         verbose_name = _('Place')
