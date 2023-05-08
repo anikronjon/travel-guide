@@ -73,8 +73,7 @@
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap">
 
     <!-- Plugins CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'vendor/font-awesome/css/all.min.css' %}">
@@ -90,20 +89,23 @@
 
 
 </head>
-<body class="has-navbar-mobile">
-{% include 'travel/header.html' %}
+<body>
+    {% block content %}
+    {% endblock %}
 
-{% include 'travel/footer.html' %}
-<!-- Bootstrap JS -->
-<script src="{% static '' %}vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="{% static 'vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
 
-<!-- Vendors -->
-<script src="{% static 'vendor/tiny-slider/tiny-slider.js' %}"></script>
-<script src="{% static 'vendor/glightbox/js/glightbox.js' %}"></script>
-<script src="{% static 'vendor/flatpickr/js/flatpickr.min.js' %}"></script>
-<script src="{% static 'vendor/choices/js/choices.min.js' %}"></script>
+    <!-- Vendors -->
+    <script src="{% static 'vendor/tiny-slider/tiny-slider.js' %}"></script>
+    <script src="{% static 'vendor/purecounterjs/dist/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'vendor/glightbox/js/glightbox.js' %}"></script>
+    <script src="{% static 'vendor/flatpickr/js/flatpickr.min.js' %}"></script>
+    <script src="{% static 'vendor/choices/js/choices.min.js' %}"></script>
+    <script src="{% static 'vendor/jarallax/jarallax.min.js' %}"></script>
+    <script src="{% static 'vendor/jarallax/jarallax-video.min.js' %}"></script>
 
-<!-- ThemeFunctions -->
-<script src="{% static 'js/functions.js' %}"></script>
+    <!-- ThemeFunctions -->
+    <script src="{% static 'js/functions.js' %}"></script>
 </body>
 </html>

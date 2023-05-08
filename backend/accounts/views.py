@@ -17,7 +17,7 @@ def signin_view(request):
             return HttpResponseRedirect('/profile/')
     else:
         form = UserSignInForm()
-    return render(request, 'accounts/signin.html', {'form': form})
+    return render(request, 'accounts/sign_in.html', {'form': form})
 
 
 # User SignUp View
@@ -30,7 +30,7 @@ def signup_view(request):
 
     else:
         form = UserSignUpForm()
-    return render(request, 'accounts/signup.html', {'form': form})
+    return render(request, 'accounts/sign_up.html', {'form': form})
 
 
 # User Dashboard

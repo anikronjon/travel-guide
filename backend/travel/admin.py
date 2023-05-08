@@ -19,10 +19,16 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
 
+@admin.register(Location)
+class LocationAdmin(admin.ModelAdmin):
+    list_display = ('division', 'district')
+
+
 @admin.register(TouristPlace)
 class TouristPlaceAdmin(admin.ModelAdmin):
     list_display = ('name', 'category')
     inlines = [MediaImageInline, MediaVideoInline]
+    prepopulated_fields = {'slug': ('name',)}
 
 
 @admin.register(Hotel)

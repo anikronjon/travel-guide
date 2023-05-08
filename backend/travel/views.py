@@ -16,8 +16,14 @@ class RestaurantListView(ListView):
 
 
 def home(request):
-    tour = TouristPlace.objects.all()
+    tourPlaces = TouristPlace.objects.all()
     hotels = Hotel.objects.all()
     restaurants = Restaurant.objects.all()
     agencies = Agency.objects.all()
-    return render(request, "travel/index.html")
+
+    return render(request, 'travel/index.html', context={
+        "tourPlaces": tourPlaces,
+        "hotels": hotels,
+        "restaurants": restaurants,
+        "agencies": agencies
+    })
